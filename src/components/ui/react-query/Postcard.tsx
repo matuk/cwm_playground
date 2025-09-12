@@ -15,10 +15,10 @@ const Postcard = ({ post }: Props) => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>Blog Post from User 1 {post.userId} </CardTitle>
-        <CardDescription>Post Title</CardDescription>
+        <CardTitle>Blog Post from User {post.userId} </CardTitle>
+        <CardDescription>{post.title}</CardDescription>
       </CardHeader>
-      <CardContent>Post Content</CardContent>
+      <CardContent>{post.body}</CardContent>
     </Card>
   );
 };
