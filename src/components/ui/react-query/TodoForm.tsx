@@ -14,7 +14,7 @@ const TodoForm = () => {
       axios
         .post<Todo>("https://jsonplaceholder.typicode.com/todos", todo)
         .then((res) => res.data),
-    onSuccess: (savedTodo, newTodo) => {
+    onSuccess: (savedTodo) => {
       //APPROACH: Invalidating the cache
       //   queryClient.invalidateQueries({
       //     queryKey: ["todos"],
@@ -23,8 +23,7 @@ const TodoForm = () => {
         savedTodo,
         ...(todos || []),
       ]);
-      console.log(savedTodo);
-      console.log(newTodo);
+      if (ref.current) ref.current.value = "";
     },
   });
   const ref = useRef<HTMLInputElement>(null);
@@ -50,8 +49,8 @@ const TodoForm = () => {
         }}
       >
         <Input ref={ref} className="sm:flex-1" />
-        <Button type="submit" className="sm:shrink-0">
-          Add
+        <Button disabled={addTodo.isPending} className="sm:shrink-0">
+          {addTodo.isPending ? "Adding..." : "Add"}
         </Button>
       </form>
     </div>
