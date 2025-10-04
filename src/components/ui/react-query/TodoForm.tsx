@@ -32,9 +32,7 @@ const TodoForm = () => {
         }}
       >
         <Input ref={ref} className="sm:flex-1" />
-        <Button disabled={addTodo.isPending} className="sm:shrink-0">
-          {addTodo.isPending ? "Adding..." : "Add"}
-        </Button>
+        <Button className="sm:shrink-0">Add</Button>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import useTodos from "./hooks/useTodos";
-import TodoCard from "./Todocard";
+import TodoCard from "./TodoCard";
 
 const TodoList = () => {
   const { data: todos, error, isLoading } = useTodos();
